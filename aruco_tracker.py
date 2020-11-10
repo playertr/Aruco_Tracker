@@ -13,7 +13,7 @@ import cv2
 import cv2.aruco as aruco
 import glob
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 ####---------------------- CALIBRATION ---------------------------
 # termination criteria for the iterative algorithm
@@ -30,7 +30,7 @@ imgpoints = [] # 2d points in image plane.
 
 # iterating through all calibration images
 # in the folder
-images = glob.glob('calib_images/*.jpg')
+images = glob.glob('calib_images/checkerboard/*.jpg')
 
 for fname in images:
     img = cv2.imread(fname)
