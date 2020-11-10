@@ -81,6 +81,11 @@ while (True):
         # estimate pose of each marker and return the values
         # rvet and tvec-different from camera coefficients
         rvec, tvec ,_ = aruco.estimatePoseSingleMarkers(corners, 0.05, mtx, dist)
+
+        print("rvec")
+        print(rvec)
+        print("tvec")
+        print(tvec)
         #(rvec-tvec).any() # get rid of that nasty numpy value array error
 
         for i in range(0, ids.size):
@@ -96,7 +101,8 @@ while (True):
         for i in range(0, ids.size):
             strg += str(ids[i][0])+', '
 
-        cv2.putText(frame, "Id: " + strg, (0,64), font, 1, (0,255,0),2,cv2.LINE_AA)
+        # cv2.putText(frame, "Id: " + strg, (0,64), font, 1, (0,255,0),2,cv2.LINE_AA)
+        cv2.putText(frame, f"Translation: {tvec}", (0,64), font, 1, (0,255,0),2,cv2.LINE_AA)
 
 
     else:
